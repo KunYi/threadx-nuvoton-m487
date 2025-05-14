@@ -22,9 +22,9 @@
 	    {
 		"type": "shell",
 		"label": "build - Release",
-		"command": "cmake --build .  --preset=Release",
+		"command": "cmake --preset=Release && cmake --build --preset=Release",
 		"options": {
-		    "cwd": "${workspaceFolder}/build"
+		    "cwd": "${workspaceFolder}"
 		},
 		"group": {
 		    "kind": "build",
@@ -32,20 +32,33 @@
 		},
 		"problemMatcher": {
 		    "base": "$gcc",
-		    "fileLocation": ["relative", "${workspaceFolder}/build"]
+		    "fileLocation": ["relative", "${workspaceFolder}"]
 		}
 	    },
 	    {
 		"type": "shell",
-		"label": "Clean & Build",
-		"command": "cmake --build . --clean-first",
+		"label": "Clean & Build - Debug",
+		"command": "cmake --preset=Debug && cmake --build --clean-first --preset=Debug",
 		"options": {
-		    "cwd": "${workspaceFolder}/build"
+		    "cwd": "${workspaceFolder}"
 		},
 		"group": "build",
 		"problemMatcher": {
 		    "base": "$gcc",
-		    "fileLocation": ["relative", "${workspaceFolder}/build"]
+		    "fileLocation": ["relative", "${workspaceFolder}"]
+		}
+	    },
+	    {
+		"type": "shell",
+		"label": "Clean & Build - Release",
+		"command": "cmake --preset=Release && cmake --build --clean-first --preset=Release",
+		"options": {
+		    "cwd": "${workspaceFolder}"
+		},
+		"group": "build",
+		"problemMatcher": {
+		    "base": "$gcc",
+		    "fileLocation": ["relative", "${workspaceFolder}"]
 		}
 	    },
 	    {

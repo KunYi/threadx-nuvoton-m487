@@ -59,6 +59,7 @@ set(SRC_FILES
   Core/Src/tx_initialize_low_level.S
   Core/Src/hal_clock.c
   Core/Src/main.c
+  Core/Src/eth_phy.c
   Core/Src/demo_threadx.c
 )
 
