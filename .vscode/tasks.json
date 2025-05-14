@@ -1,0 +1,80 @@
+{
+	// See https://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	"version": "2.0.0",
+	"tasks": [
+	    {
+		"type": "shell",
+		"label": "build - Debug",
+		"command": "cmake --preset=Debug && cmake --build --preset=Debug",
+		"options": {
+		    "cwd": "${workspaceFolder}"
+		},
+		"group": {
+		    "kind": "build",
+		    "isDefault": true
+		},
+		"problemMatcher": {
+		    "base": "$gcc",
+		    "fileLocation": ["relative", "${workspaceFolder}"]
+		}
+	    },
+	    {
+		"type": "shell",
+		"label": "build - Release",
+		"command": "cmake --build .  --preset=Release",
+		"options": {
+		    "cwd": "${workspaceFolder}/build"
+		},
+		"group": {
+		    "kind": "build",
+		    "isDefault": true
+		},
+		"problemMatcher": {
+		    "base": "$gcc",
+		    "fileLocation": ["relative", "${workspaceFolder}/build"]
+		}
+	    },
+	    {
+		"type": "shell",
+		"label": "Clean & Build",
+		"command": "cmake --build . --clean-first",
+		"options": {
+		    "cwd": "${workspaceFolder}/build"
+		},
+		"group": "build",
+		"problemMatcher": {
+		    "base": "$gcc",
+		    "fileLocation": ["relative", "${workspaceFolder}/build"]
+		}
+	    },
+	    {
+		"type": "shell",
+		"label": "Flash - Debug",
+		"command": "/tmp/OpenOCD/bin/openocd -f \"interface/nulink.cfg\" -f \"target/numicroM4.cfg\"  -c \"program Debug/M480_ThreadX.elf verify reset exit\"",
+		/* "command": "${HOME}/NuvotonOpenOCD/bin/openocd -f \"interface/nulink.cfg\" -f \"target/numicroM4.cfg\"  -c \"program Debug/M480_ThreadX.elf verify reset exit\"", */
+		"options": {
+		    "cwd": "${workspaceFolder}/build"
+		},
+		"group": "build",
+		"problemMatcher": {
+		    "base": "$gcc",
+		    "fileLocation": ["relative", "${workspaceFolder}/build"]
+		}
+	    },
+	    {
+		"type": "shell",
+		"label": "Flash - Release",
+		"command": "/tmp/OpenOCD/bin/openocd -f \"interface/nulink.cfg\" -f \"target/numicroM4.cfg\"  -c \"program Release/M480_ThreadX.elf verify reset exit\"",
+		/* "command": "${HOME}/NuvotonOpenOCD/bin/openocd -f \"interface/nulink.cfg\" -f \"target/numicroM4.cfg\"  -c \"program Release/M480_ThreadX.elf verify reset exit\"", */
+		"options": {
+		    "cwd": "${workspaceFolder}/build"
+		},
+		"group": "build",
+		"problemMatcher": {
+		    "base": "$gcc",
+		    "fileLocation": ["relative", "${workspaceFolder}/build"]
+		}
+	    }
+	]
+    }

@@ -26,5 +26,15 @@
 			}
 		}
 
+	],
+	"buildPresets": [
+		{
+		  "name": "Debug",
+		  "configurePreset": "Debug"
+		},
+		{
+		  "name": "Release",
+		  "configurePreset": "Release"
+		}
 	]
 }

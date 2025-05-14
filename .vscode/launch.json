@@ -1,0 +1,28 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Debug (OpenOCD)",
+			"cwd": "${workspaceFolder}",
+			"executable": "${workspaceFolder}/build/Debug/M480_ThreadX.elf",
+			"request": "launch",
+			"type": "cortex-debug",
+			"serverpath": "/tmp/OpenOCD/bin/openocd",
+			/* "serverpath": "${HOME}/NuvotonOpenOCD/bin/openocd", */
+			"gdbPath": "/usr/bin/gdb-multiarch",
+			"servertype": "openocd",
+			"interface": "swd",
+			"serialNumber": "",
+			"device": "M487",
+			"configFiles": [
+                		"interface//nulink.cfg",
+                		"target//numicroM4.cfg"
+			],
+			"svdFile": "${workspaceFolder}/M480BSP/M481_v1.svd",
+			"runToEntryPoint": "main",
+			"preLaunchTask": "build - Debug",
+			"showDevDebugOutput": "none",
+			/* "rtos": "ThreadX" */
+		}
+	]
+}

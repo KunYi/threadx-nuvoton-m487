@@ -8,7 +8,7 @@ The target board used for testing is [NuMaker-PFM-M487](https://www.nuvoton.com/
 The goal of this project is to provide a working ThreadX RTOS environment on the Nuvoton M487 MCU, enabling developers to:
 
 - Evaluate the performance and behavior of ThreadX on Nuvoton's Cortex-M4 platform.
-- Use this as a reference or base for further embedded development with ThreadX on the M480 series.
+- This can serve as a reference or base for further embedded development with ThreadX on the M480 series.
 
 ## ✅ Features
 
@@ -21,9 +21,10 @@ The goal of this project is to provide a working ThreadX RTOS environment on the
 
 - NuMaker-PFM-M487 development board
 - CMake
+- Ninja
 - Arm GNU Toolchain (e.g., arm-none-eabi-gcc)
-- Nuvoton-OpenOCD
-- On board debugger: Nuvoton Nu-Link
+- Nuvoton-OpenOCD (legacy)
+- On-board debugger: Nuvoton Nu-Link
 
 ## 🚀 Getting Started
 
@@ -59,7 +60,7 @@ The goal of this project is to provide a working ThreadX RTOS environment on the
    [100%] Built target M480_ThreadX.elf
    ```
 
-3. Flash the firmware to the NuMaker-PFM-M487 board.
+3. Flash the firmware using the Nuvoton OpenOCD tool:
    ```bash
    # use Nuvoton OpenOCD to flash
    openocd -f "interface/nulink.cfg" -f "target/numicroM4.cfg"  -c "program build/M480_ThreadX.elf verify reset exit"
@@ -102,6 +103,8 @@ The goal of this project is to provide a working ThreadX RTOS environment on the
    ```
 
 4. Connect to a serial terminal to observe output (if demo includes UART debug).
+5. Use VSCode with Cortex-Debug (v1.12.1) with NuvotonOpenOCD (legacy version), due to limitations of the on-board debugger
+   ![VSCode + Cortex-Debug](./docs/CortexDebugWithOpenOCD.png)
 
 ## 🧩 Project Structure
 
